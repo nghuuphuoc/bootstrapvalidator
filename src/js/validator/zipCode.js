@@ -5,6 +5,7 @@
         country: 'Please enter a valid postal code in %s',
         countries: {
             AT: 'Austria',
+            BE: 'Belgium',
             BR: 'Brazil',
             CA: 'Canada',
             CH: 'Switzerland',
@@ -33,7 +34,7 @@
             country: 'country'
         },
 
-        COUNTRY_CODES: [ 'AT', 'BR', 'CA', 'CH', 'CZ', 'DE', 'DK', 'FR', 'GB', 'IE', 'IT', 'MA', 'NL', 'PT', 'RO', 'RU', 'SE', 'SG', 'SK', 'US'],
+        COUNTRY_CODES: [ 'AT', 'BE', 'BR', 'CA', 'CH', 'CZ', 'DE', 'DK', 'FR', 'GB', 'IE', 'IT', 'MA', 'NL', 'PT', 'RO', 'RU', 'SE', 'SG', 'SK', 'US'],
 
         /**
          * Return true if and only if the input value is a valid country zip code
@@ -79,6 +80,10 @@
             switch (country) {
                 // http://en.wikipedia.org/wiki/List_of_postal_codes_in_Austria
                 case 'AT':
+                    isValid = /^([1-9]{1})(\d{3})$/.test(value);
+                    break;
+                // https://en.wikipedia.org/wiki/List_of_postal_codes_in_Belgium
+                case 'BE':
                     isValid = /^([1-9]{1})(\d{3})$/.test(value);
                     break;
 
