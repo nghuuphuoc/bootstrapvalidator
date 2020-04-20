@@ -87,7 +87,13 @@
 
             var year  = date[$.inArray('YYYY', dateFormat)],
                 month = date[$.inArray('MM', dateFormat)],
+                monthFul = date[$.inArray('MMM', dateFormat)],
                 day   = date[$.inArray('DD', dateFormat)];
+            
+                if (isNaN(month)) {
+					var monthArr = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+					month = ($.inArray(monthFul.toLowerCase(), monthArr)+1).toString();
+				}
 
             if (!year || !month || !day || year.length !== 4) {
                 return {
